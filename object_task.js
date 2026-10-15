@@ -1,48 +1,99 @@
-let my_arr = [
-    23,
-    "Jane",
-    560,
-    ["Lesson", "Maths", { currency: "KES" }],
-    987,
-    76,
-    "John"
-];
+let person = {
+  name: "Alice Kamau",
+  age: 21,
+  address: "124 Monrovia St",
+  is_student: true,
+  "my skills": ["Cloud", "SRE"],
+};
 
-// 1. Display KES
-console.log(my_arr[3][2].currency);
+console.log(person);
 
-// 2. Display 560
-console.log(my_arr[2]);
+//dot notation
+console.log(person.name);
 
-// 3. Display Maths
-console.log(my_arr[3][1]);
+//bracket_notation
+console.log(person["my skills"]);
+console.log(person["is_student"]);
 
+//methods
+console.log(Object.keys(person)); //(5) ['name', 'age', 'address', 'is_student', 'my skills']
 
-let my_arr = [
-    23,
-    "Jane",
-    560,
-    ["Lesson", "Maths", { currency: "KES" }],
-    987,
-    76,
-    "John"
-];
+console.log(Object.values(person)); //(5) ['Alice Kamau', 21, '124 Monrovia St', true, Array(2)]
 
-// Question 4: Add amount to the currency object
-my_arr[3][2].amount = 90;
+console.log(Object.entries(person)); //[Array(2), Array(2), Array(2), Array(2), Array(2)]
 
-// Question 5: Reverse 987 to 789 without reverse()
-let num = my_arr[4];
-let digits = String(num).split("");
-let reversed = "";
+person.email = "alice@gmail.com";
+console.log(person);
 
-for (let i = digits.length - 1; i >= 0; i--) {
-    reversed += digits[i];
-}
+let person2 = {
+  name: "Jack",
+  skills: {
+    soft_skills: ["Comms"],
+    technical_skills: ["JS", "Cloud", "Platform"],
+  },
+  experience: ["Google", "AWS"],
+};
 
-my_arr[4] = Number(reversed);
+console.log(Object.keys(person2)); //(3) ['name', 'skills', 'experience']
 
-// Question 6: Change John to Jane
-my_arr[6] = "Jane";
+console.log(person2.skills.technical_skills[2]); //Platform
 
-console.log(my_arr);
+const userProfile = {
+  id: 101,
+  name: {
+    first: "Brian",
+    last: "Letting",
+  },
+  contact: {
+    email: "jeff@example.com",
+    phones: ["+254700000001", "+254700000002"],
+  },
+  address: {
+    current: {
+      city: "Nairobi",
+      street: "Westlands Ave",
+      postalCode: "00100",
+    },
+    previous: [
+      {
+        city: "Eldoret",
+        street: "Main Street",
+        postalCode: "30100",
+      },
+      {
+        city: "Kisumu",
+        street: "Lake View Road",
+        postalCode: "40100",
+      },
+    ],
+  },
+  preferences: {
+    theme: "dark",
+    language: "en",
+    notifications: {
+      email: true,
+      sms: false,
+      push: ["promotions", "updates"],
+    },
+  },
+  projects: [
+    {
+      id: 1,
+      name: "POS System",
+      technologies: ["React", "FastAPI", "PostgreSQL"],
+      tasks: [
+        { title: "Set up DB", done: true },
+        { title: "Design UI", done: false },
+      ],
+    },
+    {
+      id: 2,
+      name: "Portfolio Website",
+      technologies: ["HTML", "CSS", "JavaScript"],
+      tasks: [
+        { title: "Create About Page", done: true },
+        { title: "Deploy to Netlify", done: false },
+      ],
+    },
+  ],
+};
